@@ -1,0 +1,710 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+
+<html class="no-js" lang="en">
+
+{% block content %}
+
+
+    <body>
+
+    <div id="page">
+        <!-- Header Section Start -->
+        <div class="header-section header-shadow sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-3 col-auto">
+                            <div class="header-logo">
+                                <ul>
+                                    <li class="has-children">
+                                        <a href="#"><span>Test Your English</span></a>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+
+                        <!-- Header Main Menu Start -->
+                        <div class="col d-none d-xl-block position-static">
+                            <nav class="site-main-menu menu-hover-1">
+                                <ul>
+                                    <li class="has-children">
+                                        <a href="#"><span class="menu-text">One-to-One</span></a>
+                                        <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                                        <ul class="sub-menu">
+
+
+                                        </ul>
+                                    </li>
+                                    <li class="has-children">
+                                        <a href="#"><span>Writing Connection</span></a>
+
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                        <!-- Header Right Start -->
+                        <div class="col-xl-3 col-auto">
+                            <div class="header-right">
+                                <div class="inner">
+
+                                    <!-- Header Login Start -->
+                                    <div class="header-login">
+                                        <a href="{% url 'store:profile' %}"><i class="far fa-user-circle"></i></a>
+                                    </div>
+                                    <!-- Header Login End -->
+
+                                    <!-- Header Search Start -->
+                                    <div class="header-search">
+                                        <button class="header-search-toggle"><i class="far fa-search"></i></button>
+                                        <div class="header-search-form">
+                                            <form action="#">
+                                                <input type="text" placeholder="Search...">
+                                                <button><i class="fas fa-search"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- Header Search End -->
+
+
+                                    <!-- Header Mobile Menu Toggle Start -->
+                                    <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                        <button class="toggle">
+                                            <i class="icon-top"></i>
+                                            <i class="icon-middle"></i>
+                                            <i class="icon-bottom"></i>
+                                        </button>
+                                    </div>
+                                    <!-- Header Mobile Menu Toggle End -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Header Right End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+
+        <!-- Slider/Intro Section Start -->
+        <div class="intro2-section section">
+
+            <div class="container">
+                <div class="row row-cols-lg-2 row-cols-1 max-mb-n30">
+
+                    <!-- Intro One Content Start -->
+                    <div class="col align-self-center max-mb-30" data-aos="fade-up">
+                        <div class="intro2-content text-center text-md-left">
+                            <h2 class="title">Distant learning for further expansion </h2>
+                            <div class="desc">
+                                <p>Learning is a life-long journey that in fact we never find the terminate stop. Stop
+                                    searching, enjoy the process.</p>
+                            </div>
+
+                            <a class="link link-lg" href="{% url 'store:index' %}"> Have questions?​
+                                <mark>Get Free Form <i class="far fa-long-arrow-right"></i></mark>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Intro One Content End -->
+
+                    <!-- Intro One Course Start -->
+                    <div class="col max-mb-30" data-aos="fade-up">
+                        <div class="contact-image intro2-image">
+                            <img src="{% static 'assets/images/contact/contact.jpg' %}" alt="">
+
+                            <!-- Animation Shape Start -->
+                            <div class="shape shape-1 scene">
+                                <span data-depth="3">
+                                    <img src="{% static 'assets/images/shape-animation/about-shape-1.png' %}" alt="">
+                                </span>
+                            </div>
+                            <div class="shape shape-2 scene">
+                            <span data-depth="-3"><img
+                                    src="{% static 'assets/images/shape-animation/about-shape-1.png' %}" alt=""></span>
+                            </div>
+                            <div class="shape shape-3 scene">
+                                <span data-depth="4">shape 3</span>
+                            </div>
+                            <div class="shape shape-4 scene">
+                            <span data-depth="4"><img src="{% static 'assets/images/shape-animation/shape-1.png' %}"
+                                                      alt=""></span>
+                            </div>
+                            <div class="shape shape-5 scene">
+                            <span data-depth="4"><img
+                                    src="{% static 'assets/images/shape-animation/nwesletter-shape-2.png' %}"
+                                    alt=""></span>
+                            </div>
+                            <!-- Animation Shape End -->
+                        </div>
+                    </div>
+                    <!-- Intro One Course End -->
+
+                </div>
+            </div>
+
+        </div>
+        <!-- Slider/Intro Section End -->
+
+        <!-- Brand Section Start -->
+        <!-- Brand Section End -->
+
+        <!-- Course Section Start -->
+        <div class="section section-padding" data-bg-color="#f5f7fa">
+            <div class="container">
+
+                <!-- Section Title Start -->
+                <div class="section-title text-center" data-aos="fade-up">
+                    <h2 class="title">Watch My Free Videos(YouTube)</h2>
+                </div>
+                <!-- Section Title End -->
+
+                <!-- Courses Wrapper Start -->
+                <div class="row row-cols-lg-2 row-cols-1 max-mb-n30">
+                    {% for pro in youtuber %}
+                        <!-- Course Start -->
+                        <div class="col max-mb-30" data-aos="fade-up">
+                            <div class="course-3">
+                                <div class="thumbnail">
+                                    {% thumbnail pro.image "190x220" crop="center" as im %}
+                                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                    {% endthumbnail %}
+                                </div>
+                                <div class="info">
+                                    {#<span class="price">${{ pro.price }}<span>.00</span></span>#}
+                                    <span class="price">{{ pro.title }}</span>
+                                    <h3 class="title"><a
+                                            href="course-details-standard-sidebar.html">{{ pro.des }}</a>
+                                    </h3>
+                                    <ul class="meta">
+                                        <li><i class="far fa-file-alt"></i>20 Lessons</li>
+                                        <li><i class="far fa-user-alt"></i>51 Students</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <!-- Course End -->
+
+                    <!-- Course Start -->
+                    <!-- Course End -->
+
+                    <!-- Course Start -->
+                    <!-- Course End -->
+
+                    <!-- Course Start -->
+                    <!-- Course End -->
+
+                    <!-- Course Start -->
+                    <!-- Course End -->
+
+                    <!-- Course Start -->
+                    <!-- Course End -->
+
+                </div>
+                <!-- Courses Wrapper End -->
+
+                <div class="row max-mt-50">
+                    <div class="col text-center">
+                        <a href="{% url 'store:youtube' %}" class="btn btn-primary btn-hover-secondary"> View all
+                            courses <i
+                                    class="far fa-long-arrow-right ml-3"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Course Section End -->
+
+        <!-- Learners Section Start -->
+        <!-- Learners Section End -->
+
+        <!-- About Video Section Start -->
+        <div class="about-video-section section position-relative section-padding-top section-padding-bottom-160">
+
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <!-- About Me Video Wrapper Start -->
+                        <div class="about-me-video-wrapper about-us-one-video">
+
+                            <!-- About Me Video Start -->
+                            <a href="https://www.youtube.com/watch?v=4v0vGtREANU" class="about-me-video video-popup"
+                               data-aos="fade-up">
+                                <img class="image"
+                                     src="{% static 'assets/images/video/home-2-popup-video-poster.jpg' %}"
+                                     alt="">
+                                <img class="icon" src="{% static 'assets/images/icons/icon-youtube-play.png' %}" alt="">
+                            </a>
+                            <!-- About Me Video End -->
+
+                            <!-- Animation Shape Start -->
+                            <div class="shape shape-1 scene">
+                                <span data-depth="3">
+                                    <img src="{% static 'assets/images/shape-animation/shape-2.svg' %}" alt=""
+                                         class="svgInject">
+                                </span>
+                            </div>
+                            <div class="shape shape-2 scene">
+                            <span data-depth="-3"><img src="{% static 'assets/images/shape-animation/shape-3.png' %}"
+                                                       alt=""></span>
+                            </div>
+                            <div class="shape shape-3 scene">
+                                <span data-depth="4">shape 3</span>
+                            </div>
+                            <div class="shape shape-4 scene">
+                            <span data-depth="4"><img src="{% static 'assets/images/shape-animation/shape-1.png' %}"
+                                                      alt=""></span>
+                            </div>
+                            <!-- Animation Shape End -->
+
+                        </div>
+                        <!-- About Me Video Wrapper End -->
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="about-content max-width-100 pl-60 pl-md-20 pl-sm-0 pl-xs-0 mt-sm-50 mt-xs-50">
+                            <span class="sub-title">Get started  <strong>effortlessly</strong></span>
+                            <h2 class="title">About Me <span>YouTube Chanel</span></h2>
+                            <p>Spend some time to visit our website or head office and discover our current courses,
+                                enrollment procedure, and registration deadline. We're opening new classes every
+                                beginning
+                                of each month. </p>
+                            <a class="link link-lg" href="#">
+                                <mark>Download free guidebook <i class="far fa-long-arrow-right"></i></mark>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Bottom Shape Start -->
+            <div class="section-bottom-shape-two">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" height="315">
+                    <path class="elementor-shape-fill" d="M 50 0 S75 0 100 100 L100 0"></path>
+                </svg>
+            </div>
+            <!-- Section Bottom Shape End -->
+
+        </div>
+        <!-- About Video Section End -->
+
+        <!-- Testimonial Section Start -->
+        <div class="testimonial-section section section-padding" data-bg-color="#f8f8f8">
+            <div class="container-fluid pl-80 pl-lg-15 pl-md-15 pl-sm-15 pl-xs-15 pr-80 pr-lg-15 pr-md-15 pr-sm-15 pr-xs-15">
+                <!-- Section Title Start -->
+                <div class="section-title text-center" data-aos="fade-up">
+                    <h2 class="title">Our <span> top documents'</span></h2>
+                </div>
+                <!-- Section Title End -->
+
+                <!--Testimonial Slider Start -->
+                <div class="testimonial-slider-two swiper-container" data-aos="fade-up">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-two testimonial-three max-mb-30">
+                                <div class="content">
+                                    <h4 class="title">High level of efficiency and scientific teaching methods</h4>
+                                    <p>I am happy with their arrangement of lessons and subjects. They reflect a
+                                        scientific
+                                        investigation into effective methods to adopt for learners.</p>
+                                </div>
+                                <div class="author-info">
+                                    <div class="image">
+                                        <img src="{% static 'assets/images/testimonial/70/testimonial-1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="cite">
+                                        <h6 class="name">Florence Themes</h6>
+                                        <span class="position">/ Multimedia Admin</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-two testimonial-three max-mb-30">
+                                <div class="content">
+                                    <h4 class="title">Professional team of specialists and passionate mentors at
+                                        reach </h4>
+                                    <p>I need to get a certification for English proficiency and MaxCoach is my best
+                                        choice.
+                                        Their tutors are smart and professional when dealing with students.</p>
+                                </div>
+                                <div class="author-info">
+                                    <div class="image">
+                                        <img src="{% static 'assets/images/testimonial/70/testimonial-2.jpg' %}" alt="">
+                                    </div>
+                                    <div class="cite">
+                                        <h6 class="name">Madley Pondor</h6>
+                                        <span class="position">/ IT Specialist</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-two testimonial-three max-mb-30">
+                                <div class="content">
+                                    <h4 class="title">Highly recommend their courses and teaching system</h4>
+                                    <p>I am happy with their arrangement of lessons and subjects. They reflect a
+                                        scientific
+                                        investigation into effective methods to adopt for learners.</p>
+                                </div>
+                                <div class="author-info">
+                                    <div class="image">
+                                        <img src="{% static 'assets/images/testimonial/70/testimonial-3.jpg' %}" alt="">
+                                    </div>
+                                    <div class="cite">
+                                        <h6 class="name">Luvic Dubble</h6>
+                                        <span class="position">/ Private Tutor</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-two testimonial-three max-mb-30">
+                                <div class="content">
+                                    <h4 class="title">It's a choice of quality for people who need specialized study
+                                        programs</h4>
+                                    <p>I'm a very strict person so I require everything to be organized and neat. Then,
+                                        I'll
+                                        be able to make things right and shine. MaxCoach guys just got me.</p>
+                                </div>
+                                <div class="author-info">
+                                    <div class="image">
+                                        <img src="{% static 'assets/images/testimonial/70/testimonial-4.jpg' %}" alt="">
+                                    </div>
+                                    <div class="cite">
+                                        <h6 class="name">Florence Themes</h6>
+                                        <span class="position">/ Multimedia Admin</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <!--Testimonial Slider End -->
+            </div>
+        </div>
+        <!-- Testimonial Section End -->
+
+        <!-- CTA Section Start -->
+        <div class="cta-section section section-padding" data-bg-color="#f5f5f5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="cta-content text-center">
+                            <span class="sub-title">Start today for getting <span>Test Your English</span></span>
+                            <h2 class="title">You can be your own guiding star with our help!</h2>
+                            <a href="{% url 'store:index' %}"
+                               class="btn btn-primary btn-hover-secondary btn-width-300">
+                                Get started for free</a>
+
+                            <!-- Animation Shape Start -->
+                            <div class="shape shape-1 scene">
+                                <span data-depth="4">shape 1</span>
+                            </div>
+                            <div class="shape shape-2 scene">
+                            <span data-depth="4"><img
+                                    src="{% static 'assets/images/shape-animation/cta-shape-01.png' %}" alt=""></span>
+                            </div>
+                            <div class="shape shape-3 scene">
+                            <span data-depth="4"><img
+                                    src="{% static 'assets/images/shape-animation/nwesletter-shape-2.png' %}"
+                                    alt=""></span>
+                            </div>
+                            <!-- Animation Shape End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CTA Section End -->
+
+        <!-- Funfact Section Start -->
+
+        <!-- Funfact Section End -->
+
+        <!-- Blog Section Start -->
+        <div class="related-courses-section section section-padding">
+            <div class="container">
+
+                <!-- Section Title Start -->
+                <div class="section-title text-center mb-35" data-aos="fade-up">
+                    <h3 class="title">Courses </h3>
+                </div>
+                <!-- Section Title End -->
+
+                <!-- Courses Wrapper Start -->
+                <div class="courses-slider swiper-container" data-aos="fade-up">
+
+                    <div class="swiper-wrapper">
+                        {% for pro in product %}
+                            <!-- Course Start -->
+                            <div class="swiper-slide mb-30">
+                                <div class="course box-shadow">
+                                    <div class="thumbnail">
+                                        {% thumbnail pro.image "290x220" crop="center" as im %}
+                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                        {% endthumbnail %}
+                                    </div>
+                                    <div class="info">
+                                        <span class="price">{{ pro.price }}<span>.00</span></span>
+                                        <h3 class="title"><a
+                                                href="{{ pro.get_absolute_url }}">{{ pro.description }}</a>
+                                        </h3>
+                                        <ul class="meta">
+                                            <li><i class="far fa-file-alt"></i>20 Lessons</li>
+                                            <li><i class="far fa-user-alt"></i>51 Students</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Course End -->
+
+                        {% endfor %}
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+
+                    <div class="row max-mt-50">
+                        <div class="col text-center">
+                            <a href="{% url 'store:product' %}" class="btn btn-primary btn-hover-secondary"> View all
+                                courses <i
+                                        class="far fa-long-arrow-right ml-3"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Courses Wrapper End -->
+            </div>
+        </div>
+        <!-- Blog Section End -->
+
+        <!-- Newsletter Section Start -->
+        <div class="newsletter-section section section-padding position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="newsletter-content">
+                            <h2 class="title">Sign up for our <span>Newsletters</span></h2>
+                            <p>Enter your email address to register to our newsletter subscription <br
+                                    class="d-none d-md-block">delivered on a regular basis! </p>
+                            <div class="newsletter-form">
+                                <form action="#">
+                                    <input type="email" placeholder="Your E-mail">
+                                    <button class="btn btn-primary btn-hover-secondary">Subscribe</button>
+                                </form>
+                            </div>
+
+                            <!-- Animation Shape Start -->
+                            <div class="shape shape-1 scene">
+                                <span data-depth="4">shape 3</span>
+                            </div>
+                            <div class="shape shape-2 scene">
+                            <span data-depth="4"><img
+                                    src="{% static 'assets/images/shape-animation/nwesletter-shape-1.png' %}"
+                                    alt=""></span>
+                            </div>
+                            <div class="shape shape-3 scene">
+                            <span data-depth="4"><img
+                                    src="{% static 'assets/images/shape-animation/nwesletter-shape-2.png' %}"
+                                    alt=""></span>
+                            </div>
+                            <!-- Animation Shape End -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Newsletter Section End -->
+
+
+        <!-- Newsletter Popup Start -->
+        <!-- Newsletter Popup End -->
+
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+
+    <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="index.html"><img src="{% static 'assets/images/logo/dark-logo.png' %}" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                    <ul>
+                        <li class="has-children position-static">
+                            <a href="#"><span class="menu-text">Home</span></a>
+                            <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+
+                            <ul class="mega-menu">
+                                <li>
+                                    <ul>
+                                        <li><a href="index.html"><span class="menu-text">MaxCoach Education <span
+                                                class="badge">Hot</span></span></a></li>
+                                        <li><a href="index-2.html"><span class="menu-text">Course Portal</span></a></li>
+                                        <li><a href="index-3.html"><span class="menu-text">Distant Learning <span
+                                                class="badge">Hot</span></span></a></li>
+                                        <li><a href="index-4.html"><span
+                                                class="menu-text">Multimedia Pedagogy</span></a>
+                                        </li>
+                                        <li><a href="index-5.html"><span class="menu-text">Modern Schooling</span></a>
+                                        </li>
+                                        <li><a href="index-6.html"><span class="menu-text">Remote Training</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li><a href="index-7.html"><span class="menu-text">Health Coaching</span></a>
+                                        </li>
+                                        <li><a href="index-8.html"><span class="menu-text">Gym Coaching</span></a></li>
+                                        <li><a href="index-9.html"><span class="menu-text">Business</span></a></li>
+                                        <li><a href="index-10.html"><span class="menu-text">Artist <span
+                                                class="badge primary">New</span></span></a></li>
+                                        <li><a href="index-11.html"><span class="menu-text">Kitchen Coach <span
+                                                class="badge primary">New</span></span></a></li>
+                                        <li><a href="index-12.html"><span class="menu-text">Motivation <span
+                                                class="badge primary">New</span></span></a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-50">
+                                    <ul>
+                                        <li><a href="#"><img src="{% static 'assets/images/menu/mega-menu.jpg' %}"
+                                                             alt="menu-image"></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#"><span class="menu-text">Pages</span></a>
+                            <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                            <ul class="sub-menu">
+                                <li><a href="start-here.html"><span class="menu-text">Start Here</span></a></li>
+                                <li><a href="success-story.html"><span class="menu-text">Success Story</span></a></li>
+                                <li><a href="about-me.html"><span class="menu-text">About me</span></a></li>
+                                <li><a href="about-us-1.html"><span class="menu-text">About us 01</span></a></li>
+                                <li><a href="about-us-2.html"><span class="menu-text">About us 02</span></a></li>
+                                <li><a href="about-us-3.html"><span class="menu-text">About us 03</span></a></li>
+                                <li><a href="contact-me.html"><span class="menu-text">Contact me</span></a></li>
+                                <li><a href="contact-us.html"><span class="menu-text">Contact us</span></a></li>
+                                <li><a href="purchase-guide.html"><span class="menu-text">Purchase Guide</span></a></li>
+                                <li><a href="privacy-policy.html"><span class="menu-text">Privacy Policy</span></a></li>
+                                <li><a href="terms-of-service.html"><span class="menu-text">Terms of Service</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#"><span class="menu-text">Courses</span></a>
+                            <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                            <ul class="sub-menu">
+                                <li><a href="courses-grid-1.html"><span class="menu-text">Courses Grid 01</span></a>
+                                </li>
+                                <li><a href="courses-grid-2.html"><span class="menu-text">Courses Grid 02</span></a>
+                                </li>
+                                <li><a href="courses-grid-3.html"><span class="menu-text">Courses Grid 03</span></a>
+                                </li>
+                                <li><a href="membership-levels.html"><span
+                                        class="menu-text">Membership Levels</span></a>
+                                </li>
+                                <li><a href="become-a-teacher.html"><span class="menu-text">Become a Teacher</span></a>
+                                </li>
+                                <li><a href="profile.html"><span class="menu-text">Profile</span></a></li>
+                                <li><a href="checkout.html"><span class="menu-text">Checkout</span></a></li>
+                                <li class="has-children">
+                                    <a href="course-details-sticky-feature-bar.html"><span
+                                            class="menu-text">Single Layout</span></a>
+                                    <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                                    <ul class="sub-menu">
+                                        <li><a href="course-details-free.html"><span
+                                                class="menu-text">Free Course</span></a></li>
+                                        <li><a href="course-details-sticky-feature-bar.html"><span class="menu-text">Sticky Features Bar</span></a>
+                                        </li>
+                                        <li><a href="course-details-standard-sidebar.html"><span class="menu-text">Standard Sidebar</span></a>
+                                        </li>
+                                        <li><a href="course-details-no-sidebar.html"><span
+                                                class="menu-text">No Sidebar</span></a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#"><span class="menu-text">Event</span></a>
+                            <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                            <ul class="sub-menu">
+                                <li><a href="event.html"><span class="menu-text">Event</span></a></li>
+                                <li><a href="zoom-meetings.html"><span class="menu-text">Zoom Meetings</span></a></li>
+                                <li><a href="event-details.html"><span class="menu-text">Event Details</span></a></li>
+                                <li><a href="zoom-event-details.html"><span
+                                        class="menu-text">Zoom Meeting Details</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#"><span class="menu-text">Blog</span></a>
+                            <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                            <ul class="sub-menu">
+                                <li><a href="blog-grid.html"><span class="menu-text">Blog Grid</span></a></li>
+                                <li><a href="blog-masonry.html"><span class="menu-text">Blog Masonry</span></a></li>
+                                <li><a href="blog-classic.html"><span class="menu-text">Blog Classic</span></a></li>
+                                <li><a href="blog-list.html"><span class="menu-text">Blog List</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#"><span class="menu-text">Shop</span></a>
+                            <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                            <ul class="sub-menu">
+                                <li><a href="shop.html"><span class="menu-text">Shop Left Sidebar</span></a></li>
+                                <li><a href="shop-right-sidebar.html"><span class="menu-text">Shop Right Sidebar</span></a>
+                                </li>
+                                <li><a href="shopping-cart.html"><span class="menu-text">Cart</span></a></li>
+                                <li><a href="shopping-cart-empty.html"><span class="menu-text">Cart Empty</span></a>
+                                </li>
+                                <li><a href="wishlist.html"><span class="menu-text">Wishlist</span></a></li>
+                                <li><a href="product-details.html"><span class="menu-text">Single Product</span></a>
+                                </li>
+                                <li><a href="my-account.html"><span class="menu-text">My Account</span></a></li>
+                                <li><a href="login-register.html"><span class="menu-text">Login Register</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    </body>
+
+{% endblock %}
+
+</html>
+

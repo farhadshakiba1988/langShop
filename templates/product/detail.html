@@ -1,0 +1,266 @@
+{% load thumbnail %}
+{% load static %}
+
+{% include 'base/head.html' %}
+
+<body>
+
+{% block content %}
+
+     <div id="page">
+
+
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">Product Details</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb">
+                <div class="container">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'store:index' %}">Home</a></li>
+                        <li class="current">Product Details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+
+        <!-- Product Details Section Start -->
+        <div class="section section-padding-bottom-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="single-product-image">
+                            <img src="{{ products.image.url }}" alt="book">
+                            <div class="product-badges">
+                                <span class="onsale"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="single-product-content">
+                            <h3 class="title">Use SEO to Boost Your Business</h3>
+                            <span class="prices">
+                                <span class="price-new">$49.00</span>
+                            <span class="price-old">$69.00</span>
+                            </span>
+                            <div class="product-ratings">
+                                <span class="star-rating">
+                                    <span class="rating-active">ratings</span>
+                                </span>
+                                <a href="#reviews" class="review-link">(<span class="count">2</span> customer reviews)</a>
+                            </div>
+                            <div class="product-description">
+                                <p>Learn clear and concise Search Engine Optimisation (SEO) strategies to boost your website’s search ranking on Google, Bing, and Yahoo in 2020, regardless of your prior experience. Have you ever considered why your online business isn’t sitting at the number one spot on Google, or even on the first page of results? Now is the time to discover why SEO is one of your greatest allies in generating additional traffic and conversions in 2020.</p>
+                            </div>
+                            <div class="quantity-button-wrapper">
+                                <div class="quantity">
+                                    <label>Quantity</label>
+                                    <input type="number" value="1" min="1">
+                                </div>
+                                <p class="stock in-stock">99 in stock</p>
+                            </div>
+                            <div class="product-action">
+                                <button class="btn btn-primary btn-hover-secondary">Add to cart</button>
+                                <button class="btn btn-wishlist btn-box"><i class="fal fa-heart"></i></button>
+                                <button class="btn btn-compare btn-box"><i class="fal fa-random"></i></button>
+                            </div>
+
+                            <div class="product-meta">
+                                <div class="meta-item">
+                                    <h6>Sku:</h6>
+                                    <div class="meta-content">
+                                        <span class="sku">MCB-001</span>
+                                    </div>
+                                </div>
+
+                                <div class="meta-item">
+                                    <h6>Category:</h6>
+                                    <div class="meta-content">
+                                        <a href="#" rel="tag">Book</a>
+                                    </div>
+                                </div>
+                                <div class="meta-item">
+                                    <h6>Tags:</h6>
+                                    <div class="meta-content">
+                                        <a href="#" rel="tag">business</a> / <a href="#" rel="tag">seo</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="entry-product-share">
+                                <h6>Share:</h6>
+                                <div class="author-social-networks">
+                                    <div class="inner">
+
+                                        <a class="hint--bounce hint--top hint--primary" aria-label="Facebook" href="#" target="_blank">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+
+                                        <a class="hint--bounce hint--top hint--primary" aria-label="Twitter" href="#" target="_blank">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+
+                                        <a class="hint--bounce hint--top hint--primary" aria-label="Linkedin" href="#" target="_blank">
+                                            <i class="fab fa-linkedin"></i>
+                                        </a>
+
+                                        <a class="hint--bounce hint--top hint--primary" aria-label="Tumblr" href="#" target="_blank">
+                                            <i class="fab fa-tumblr-square"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Product Details Section End -->
+
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+
+    <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="{% url 'store:index' %}"><img src="assets/images/logo/dark-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                    <ul>
+                        <li class="has-children position-static">
+                            <a href="{% url 'store:index' %}"><span class="menu-text">Home</span></a>
+                            <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+
+                            <ul class="mega-menu">
+                                <li>
+                                    <ul>
+                                        <li><a href="index.html"><span class="menu-text">MaxCoach Education <span class="badge">Hot</span></span></a></li>
+                                        <li><a href="index-2.html"><span class="menu-text">Course Portal</span></a></li>
+                                        <li><a href="index-3.html"><span class="menu-text">Distant Learning <span class="badge">Hot</span></span></a></li>
+                                        <li><a href="index-4.html"><span class="menu-text">Multimedia Pedagogy</span></a></li>
+                                        <li><a href="index-5.html"><span class="menu-text">Modern Schooling</span></a></li>
+                                        <li><a href="index-6.html"><span class="menu-text">Remote Training</span></a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li><a href="index-7.html"><span class="menu-text">Health Coaching</span></a></li>
+                                        <li><a href="index-8.html"><span class="menu-text">Gym Coaching</span></a></li>
+                                        <li><a href="index-9.html"><span class="menu-text">Business</span></a></li>
+                                        <li><a href="index-10.html"><span class="menu-text">Artist <span class="badge primary">New</span></span></a></li>
+                                        <li><a href="index-11.html"><span class="menu-text">Kitchen Coach <span class="badge primary">New</span></span></a></li>
+                                        <li><a href="index-12.html"><span class="menu-text">Motivation <span class="badge primary">New</span></span></a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-50">
+                                    <ul>
+                                        <li><a href="#"><img src="assets/images/menu/mega-menu.jpg" alt="menu-image"></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#"><span class="menu-text">Pages</span></a>
+                            <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                            <ul class="sub-menu">
+                                <li><a href="start-here.html"><span class="menu-text">Start Here</span></a></li>
+                                <li><a href="success-story.html"><span class="menu-text">Success Story</span></a></li>
+                                <li><a href="about-me.html"><span class="menu-text">About me</span></a></li>
+                                <li><a href="about-us-1.html"><span class="menu-text">About us 01</span></a></li>
+                                <li><a href="about-us-2.html"><span class="menu-text">About us 02</span></a></li>
+                                <li><a href="about-us-3.html"><span class="menu-text">About us 03</span></a></li>
+                                <li><a href="contact-me.html"><span class="menu-text">Contact me</span></a></li>
+                                <li><a href="contact-us.html"><span class="menu-text">Contact us</span></a></li>
+                                <li><a href="purchase-guide.html"><span class="menu-text">Purchase Guide</span></a></li>
+                                <li><a href="privacy-policy.html"><span class="menu-text">Privacy Policy</span></a></li>
+                                <li><a href="terms-of-service.html"><span class="menu-text">Terms of Service</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#"><span class="menu-text">Courses</span></a>
+                            <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                            <ul class="sub-menu">
+                                <li><a href="courses-grid-1.html"><span class="menu-text">Courses Grid 01</span></a></li>
+                                <li><a href="courses-grid-2.html"><span class="menu-text">Courses Grid 02</span></a></li>
+                                <li><a href="courses-grid-3.html"><span class="menu-text">Courses Grid 03</span></a></li>
+                                <li><a href="membership-levels.html"><span class="menu-text">Membership Levels</span></a></li>
+                                <li><a href="become-a-teacher.html"><span class="menu-text">Become a Teacher</span></a></li>
+                                <li><a href="profile.html"><span class="menu-text">Profile</span></a></li>
+                                <li><a href="checkout.html"><span class="menu-text">Checkout</span></a></li>
+                                <li class="has-children">
+                                    <a href="course-details-sticky-feature-bar.html"><span class="menu-text">Single Layout</span></a>
+                                    <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                                    <ul class="sub-menu">
+                                        <li><a href="course-details-free.html"><span class="menu-text">Free Course</span></a></li>
+                                        <li><a href="course-details-sticky-feature-bar.html"><span class="menu-text">Sticky Features Bar</span></a></li>
+                                        <li><a href="course-details-standard-sidebar.html"><span class="menu-text">Standard Sidebar</span></a></li>
+                                        <li><a href="course-details-no-sidebar.html"><span class="menu-text">No Sidebar</span></a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#"><span class="menu-text">Event</span></a>
+                            <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                            <ul class="sub-menu">
+                                <li><a href="event.html"><span class="menu-text">Event</span></a></li>
+                                <li><a href="zoom-meetings.html"><span class="menu-text">Zoom Meetings</span></a></li>
+                                <li><a href="event-details.html"><span class="menu-text">Event Details</span></a></li>
+                                <li><a href="zoom-event-details.html"><span class="menu-text">Zoom Meeting Details</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#"><span class="menu-text">Blog</span></a>
+                            <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                            <ul class="sub-menu">
+                                <li><a href="product.html"><span class="menu-text">Blog Grid</span></a></li>
+                                <li><a href="blog-masonry.html"><span class="menu-text">Blog Masonry</span></a></li>
+                                <li><a href="blog-classic.html"><span class="menu-text">Blog Classic</span></a></li>
+                                <li><a href="blog-list.html"><span class="menu-text">Blog List</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#"><span class="menu-text">Shop</span></a>
+                            <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                            <ul class="sub-menu">
+                                <li><a href="shop.html"><span class="menu-text">Shop Left Sidebar</span></a></li>
+                                <li><a href="shop-right-sidebar.html"><span class="menu-text">Shop Right Sidebar</span></a></li>
+                                <li><a href="shopping-cart.html"><span class="menu-text">Cart</span></a></li>
+                                <li><a href="shopping-cart-empty.html"><span class="menu-text">Cart Empty</span></a></li>
+                                <li><a href="wishlist.html"><span class="menu-text">Wishlist</span></a></li>
+                                <li><a href="product-details.html"><span class="menu-text">Single Product</span></a></li>
+                                <li><a href="my-account.html"><span class="menu-text">My Account</span></a></li>
+                                <li><a href="login-register.html"><span class="menu-text">Login Register</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% include 'base/js.html' %}
+</body>
+
+

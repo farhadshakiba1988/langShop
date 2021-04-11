@@ -1,0 +1,1 @@
+web:gunicorn LangShop.wsgi --log-file -
